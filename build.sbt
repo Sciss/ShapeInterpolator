@@ -1,6 +1,6 @@
 name              := "ShapeInterpolator"
 organization      := "de.sciss"
-version           := "0.1.0-SNAPSHOT"
+version           := "0.1.0"
 scalaVersion      := "2.11.7"  // not used
 licenses          := Seq("GPL v2 with class path exception" -> url("http://openjdk.java.net/legal/gplv2+ce.html"))
 crossPaths        := false
@@ -11,7 +11,6 @@ description       := "Java2D Shape Interpolator"
 lazy val commonJavaOptions = Seq("-source", "1.6")
 
 javacOptions        := commonJavaOptions ++ Seq("-target", "1.6", "-g", "-Xlint:deprecation")
-
 javacOptions in doc := commonJavaOptions  // cf. sbt issue #355
 
 // ---- publishing to Maven Central ----

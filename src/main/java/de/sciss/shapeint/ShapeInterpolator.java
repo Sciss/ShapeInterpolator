@@ -73,9 +73,6 @@ import java.util.Vector;
  * Also, it is advisable to use different instances of {@code ShapeEvaluator}
  * for every pair of keyframes being morphed so that the cached information
  * can be reused as much as possible.
- * <p>
- *
- * Known issues: <tt>getBounds</tt> is not always reporting the correct bounds.
  */
 public class ShapeInterpolator {
     private Shape savedV0;
@@ -92,10 +89,20 @@ public class ShapeInterpolator {
         return instance.evaluate(v0, v1, fraction, unionBounds);
     }
 
+    /** Creates an interpolated shape from tight bounds. */
     public Shape evaluate(Shape v0, Shape v1, float fraction) {
         return evaluate(v0, v1, fraction, false);
     }
 
+    /** Creates an interpolated shape.
+     *
+     * @param v0            the first shape
+     * @param v1            the second shape
+     * @param fraction      the fraction from zero (just first shape) to one (just second shape)
+     * @param unionBounds   if `true`, the shape reports bounds which are the union of
+     *                      the bounds of both shapes, if `false` it reports "tight" bounds
+     *                      using the actual interpolated path.
+     */
     public Shape evaluate(Shape v0, Shape v1, float fraction, boolean unionBounds) {
         if (savedV0 != v0 || savedV1 != v1) {
             if (savedV0 == v1 && savedV1 == v0) {
@@ -584,7 +591,6 @@ public class ShapeInterpolator {
             return getBounds2D().getBounds();
         }
 
-        /** Note: without <tt>unionBounds</tt>, this method may return wrong bounds. */
         public Rectangle2D getBounds2D() {
             final int n = geom0.getNumCoordinates();
             float xMin, yMin, xMax, yMax;
@@ -645,7 +651,7 @@ public class ShapeInterpolator {
                     }
                 }
             }
-            return new Rectangle2D.Float(xMin, yMin, xMax, yMax);
+            return new Rectangle2D.Float(xMin, yMin, xMax - xMin, yMax - yMin);
         }
 
         public boolean contains(double x, double y) {
