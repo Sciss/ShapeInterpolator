@@ -7,7 +7,7 @@
 A Java2D helper to interpolate or morph between two shapes. Adapted from an original code for JavaFX,
 released under GNU GPL v2 license with class path exception. 
 
-All modifications, extensions and Scala project (C)opyright 2016 by Hanns Holger Rutz. 
+All modifications and extensions (C)opyright 2016 by Hanns Holger Rutz. 
 New project released under the same license.
 
 ## linking
