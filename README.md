@@ -1,6 +1,5 @@
 # ShapeInterpolator
 
-[![Flattr this](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=sciss&url=https%3A%2F%2Fgithub.com%2FSciss%2FShapeInterpolator&title=ShapeInterpolator&language=Java&tags=github&category=software)
 [![Build Status](https://travis-ci.org/Sciss/ShapeInterpolator.svg?branch=master)](https://travis-ci.org/Sciss/ShapeInterpolator)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.sciss/shapeinterpolator/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.sciss/shapeinterpolator)
 
